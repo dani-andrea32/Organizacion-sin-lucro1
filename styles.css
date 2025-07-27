@@ -66,9 +66,11 @@ form {
 
 
 input[type="text"],
+input[type="email"],
 input[type="number"],
 input[type="date"],
-input[type="time"] {
+input[type="time"],
+textarea {
   width: 100%;
   padding: 8px;
   margin-top: 4px;
