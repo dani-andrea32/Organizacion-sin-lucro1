@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="styles.css" />
+     <title>Registro de Donante</title>
+ </head>
+ <body>
+      <h2>Registro de Donante</h2>
+
+      <!--Formulario para registrar datos de un donante-->
+      <form action="procesar_donante.php" method="POST" onsubmit="return validarDonante()">
+         <label>Nombre:</label><br>
+         <input type="text" name="nombre" id="dnombre" required><br>
+
+         <label>Email:</label><br>
+         <input type="email" name="email" id="demail" required><br>
+
+         <label>Direccion:</label><br>
+         <input type="text" name="direccion" id="direccion" required><br>
+
+         <label>Telefono:</label><br>
+         <input type="text" name="telefono" id="telefono" required><br><br>
+
+         <input type="submit" value="Guardar donante">
+      </form>
+
+      <!--Script de javascript para validar que algunos campos no estén vacíos-->
+      <script>
+        function validarDonante() {
+            if (
+                document.getElementById("dnombre").value === "" ||
+                document.getElementById("demail").value === ""
+            )   {
+                alert("Todos los campos son obligatorios.");
+                return false;
+            }
+            return true;
+        }
+      </script>
+
+     <!--Enlace para volver a la página principal-->
+     <br>
+     <a href="index.html">Volver al inicio</a>
+ </body>
+</html>
