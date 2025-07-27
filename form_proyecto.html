@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css" />
+<title>Registro de Proyecto</title>
+</head>
+<body>
+
+<h2>Registro de Proyecto</h2>
+<!--Formulario para registro de un nuevo proyecto-->
+<form action="procesar_proyecto.php" method="POST" onsubmit="return validarProyecto()">
+
+   <label>Nombre:</label><br>
+   <input type="text" name="nombre" id="nombre" required><br>
+
+   <label>Descripcion:</label><br>
+   <textarea name="descripcion" id="descripcion" required></textarea><br>
+
+   <label>Presupuesto (CLP):</label><br>
+   <input type="number" name="presupuesto" id="presupuesto" step="0.01" required><br>
+
+   <label>Fecha de inicio:</label><br>
+   <input type="date" name="fecha_inicio" id="fecha_inicio" required><br>
+
+   <label>Fecha de fin:</label><br>
+   <input type="date" name="fecha_fin" id="fecha_fin" required><br><br>
+
+   <input type="submit" value="Guardar_proyecto">
+</form>
+
+<!--Script de validación en el navegador-->
+<script>
+function validarProyecto() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const descripcion = document.getElementById("descripcion").value.trim();
+    const presupuesto = parseFloat(document.getElementById("presupuesto").value);
+    const fechaInicio = document.getElementById("fecha_inicio").value;
+    const fechaFin = document.getElementById("fecha_fin").value;
+
+    // Validar campos obligatorios
+    if (nombre === "" || descripcion === "" || isNaN(presupuesto) || presupuesto <= 0) {
+        alert("Completa todos los campos correctamente. El presupuesto debe ser mayor a 0.");
+        return false;
+    }
+
+    // Validar que las fechas estén definidas
+    if (!fechaInicio || !fechaFin) {
+        alert("Debes ingresar ambas fechas.");
+        return false;
+    }
+
+    // Validar que fecha_fin no sea anterior a fecha_inicio
+    if (new Date(fechaFin) < new Date(fechaInicio)) {
+        alert("La fecha de fin no puede ser anterior a la fecha de inicio.");
+        return false;
+    }
+
+    return true; // Todo OK
+}
+</script>
+
+<a href="index.html">Volver al inicio</a>
+</body>
+</html>

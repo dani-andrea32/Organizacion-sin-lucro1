@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Organización sin fines de lucro</title>
+ <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+
+<h1 style="text-align: center;">Bienvenidos a nuestra organización</h1>
+<!--Buscar eventos-->
+<div class="search-container">
+    <input type="text" id="events" placeholder="Buscar evento">
+    <button onclick="search()">Buscar</button>
+</div>
+
+
+
+<!--Resultados busqueda de eventos-->
+<div id="results-container"></div>
+
+
+
+<!--Información de proyectos-->
+<div id="project-info">
+    <h2>Proyectos</h2>
+    <div id="projects-container"></div>
+</div> <!--Fin de #project-info-->
+
+
+
+<!--Formulario de registro de eventos-->
+<div id="event-registration">
+    <h2>Registro de un nuevo evento</h2>
+    <form action="registro_evento.php" method="post">
+        <label for="descripcion">Descripción del evento:</label><br>
+        <input type="text" id="descripcion" name="descripcion" required><br><br>
+
+
+
+
+        <label for="tipo">Tipo de evento:</label><br>
+        <input type="text" id="tipo" name="tipo" required><br><br>
+
+
+
+
+        <label for="lugar">Lugar:</label><br>
+        <input type="text" id="lugar" name="lugar" required><br><br>
+
+
+
+
+        <label for="fecha">Fecha:</label><br>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+
+
+
+        <label for="hora">Hora:</label><br>
+        <input type="time" id="hora" name="hora" required><br><br>
+
+
+
+
+        <input type="submit" value="Registro de evento">
+    </form>
+</div>
+
+
+<!--Donaciones-->
+<div id="donation-info">
+    <h2>Realizar donación</h2>
+
+
+    <!--Formulario que envia los datos a donacion.php por medio de POST-->
+    <form action="donacion.php" method="POST">
+        <!--Campo para ingresar el monto de la donación-->
+        <input type="number" name="donacion" placeholder="Monto en $" required>
+     
+        <!--Botón para enviar el formulario-->
+        <input type="submit" value="Donar">
+    </form>
+
+
+    <!--Enlace para usar el formulario de donación-->
+    <p style="margin-top: 10px;">
+       <a href="agregar_donacion.html">Agregar campañas al carro de donaciones</a>
+    </p>
+    <p><a href="form_proyecto.html">Registrar nuevo proyecto</a></p> 
+    <p><a href="form_donante.html">Registrar nuevo donante</a></p> 
+    <p><a href="ver_proyectos.php">Ver todos los proyectos</a></p> 
+    <p><a href="ver_donantes.php">Ver todos los donantes</a></p>   
+    <p><a href="form_donacion.php">Registrar nueva donación</a></p> 
+    <p><a href="ver_donaciones.php">Ver todas las donaciones</a></p> 
+    <p><a href="resumen_donaciones.php">Ver resumen por proyecto</a></p> 
+</div>
+
+
+
+
+<!--Notificaciones-->
+<div id="notifications-container">
+    <h2>Notificaciones</h2>
+    <ul id="notifications-list"></ul>
+</div>
+
+
+
+
+<!--Script JavaScript-->
+<script src="app.js"></script>
+
+</body>
+</html>
