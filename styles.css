@@ -1,3 +1,8 @@
+/* Solución para evitar que los inputs sobresalgan */
+* {
+    box-sizing: border-box;
+}
+
 /*Estilos generales */
 body {
   font-family: Arial, sans-serif;
